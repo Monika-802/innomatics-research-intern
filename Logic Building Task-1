@@ -1,0 +1,56 @@
+# Login Authentication
+
+username = "admin"
+password = "1234"
+input_username = input("Enter username: ")
+input_password = input("Enter password: ")
+
+if input_username == username and input_password == password:
+    print("Login successful")
+else:
+    print("Invalid credentials")
+
+
+# Marks Analysis
+
+marks = [45, 78, 90, 33, 60]
+pass_count = 0
+fail_count = 0
+
+for mark in marks:
+    if mark >= 50:
+        pass_count += 1
+    else:
+        fail_count += 1
+
+print("Total Students:", len(marks))
+print("Number of Students Passed:", pass_count)
+print("Number of Students Failed:", fail_count)
+
+
+# Data Cleaner
+
+names = [" Alice ", "bob", " CHARLIE "]
+cleaned_names = [name.strip().lower() for name in names]
+print("names:", cleaned_names)
+
+
+# Message Length Checker
+
+messages = ["Hi", "Welcome to the platform", "OK"]
+
+for message in messages:
+    length = len(message)
+    print("message:", message)
+    print("length:", length)
+    if length > 10:
+        print("status: Flagged")
+    else:
+        print("Status: Not Flagged")
+
+
+# Error Detector
+
+logs = ["INFO", "ERROR", "WARNING", "ERROR"]
+error_count = logs.count("ERROR")
+print("Total error count:", error_count)
