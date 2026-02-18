@@ -1,1 +1,126 @@
+### 1. Employee Performance Bonus Eligibility 
+employees = {"Ravi": 92,"Anita": 88, "Kiran": 92, "Suresh": 85}
+
+highest_score = 0
+
+for name in employees:
+    if employees[name] > highest_score:
+        highest_score = employees[name]
+
+top_performers = []
+
+for name in employees:
+    if employees[name] == highest_score:
+        top_performers.append(name)
+
+print("Top Performers Eligible for Bonus:")
+print(", ".join(top_performers), "(Score:", highest_score, ")")
+
+### 2.Search Query Keyword Analysis 
+import string
+
+search_query = "Buy mobile phone buy phone online"
+clean_query = search_query.lower()
+
+for punctuation in string.punctuation:
+    clean_query = clean_query.replace(punctuation, "")
+
+words = clean_query.split()
+keyword_frequency = {}
+
+for word in words:
+    if word in keyword_frequency:
+        keyword_frequency[word] += 1
+    else:
+        keyword_frequency[word] = 1
+
+repeated_keywords = {}
+
+for word, count in keyword_frequency.items():
+    if count > 1:
+        repeated_keywords[word] = count
+
+print(repeated_keywords)
+
+### 3.Sensor Data Validation
+
+sensor_readings = [3, 4, 7, 8, 10, 12, 5]
+valid_readings_list = []
+valid_readings_dict = {}
+
+for hour_index in range(len(sensor_readings)):
+    reading_value = sensor_readings[hour_index]
+
+    if reading_value % 2 == 0:
+        valid_readings_list.append((hour_index, reading_value))
+        valid_readings_dict[hour_index] = reading_value
+
+print("Valid Sensor Readings (Hour, Value):")
+print(valid_readings_list)
+
+### 4.Email Domain Usage Analysis
+
+emails = ["ravi@gmail.com","anita@yahoo.com","kiran@gmail.com","suresh@gmail.com", "meena@yahoo.com"]
+
+domain_count = {}
+total_emails = len(emails)
+
+for email in emails:
+    domain = email.split("@")[1]
+    
+    if domain in domain_count:
+        domain_count[domain] += 1
+    else:
+        domain_count[domain] = 1
+
+domain_percentage = {}
+
+for domain, count in domain_count.items():
+    percentage = (count / total_emails) * 100
+    domain_percentage[domain] = percentage
+
+for domain, percentage in domain_percentage.items():
+    print(f"{domain}: {percentage:.0f}%")
+
+### 5. Sales Spike Detection
+
+sales = [1200, 1500, 900, 2200, 1400, 3000]
+total_sales = 0
+
+for value in sales:
+    total_sales += value
+
+average_sales = total_sales / len(sales)
+sales_spikes = []
+
+for day_index in range(len(sales)):
+    if sales[day_index] > average_sales:
+        sales_spikes.append((day_index + 1, sales[day_index]))
+
+
+for day, value in sales_spikes:
+    print(f"Day {day}: {value}")
+
+### 6.Duplicate User ID Detection
+
+user_ids = ["user1", "user2", "user1", "user3", "user1", "user3"]
+total_users = len(user_ids)
+frequency_data = {}
+
+for user in user_ids:
+    if user in frequency_data:
+        frequency_data[user] += 1
+    else:
+        frequency_data[user] = 1
+
+duplicate_found = False
+
+for user, count in frequency_data.items():
+    if count > 1:
+        if not duplicate_found:
+            duplicate_found = True
+        print(f"{user} → {count} times")
+
+if not duplicate_found:
+    print("\nNo duplicate user IDs found.")
 
