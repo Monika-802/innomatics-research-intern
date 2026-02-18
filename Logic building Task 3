@@ -1,14 +1,12 @@
 ### 1. Employee Performance Bonus Eligibility 
+
 employees = {"Ravi": 92,"Anita": 88, "Kiran": 92, "Suresh": 85}
-
 highest_score = 0
-
 for name in employees:
     if employees[name] > highest_score:
         highest_score = employees[name]
 
 top_performers = []
-
 for name in employees:
     if employees[name] == highest_score:
         top_performers.append(name)
@@ -16,9 +14,9 @@ for name in employees:
 print("Top Performers Eligible for Bonus:")
 print(", ".join(top_performers), "(Score:", highest_score, ")")
 
-### 2.Search Query Keyword Analysis 
-import string
+### 2.Search Query Keyword Analysis
 
+import string
 search_query = "Buy mobile phone buy phone online"
 clean_query = search_query.lower()
 
@@ -61,13 +59,11 @@ print(valid_readings_list)
 ### 4.Email Domain Usage Analysis
 
 emails = ["ravi@gmail.com","anita@yahoo.com","kiran@gmail.com","suresh@gmail.com", "meena@yahoo.com"]
-
 domain_count = {}
 total_emails = len(emails)
 
 for email in emails:
     domain = email.split("@")[1]
-    
     if domain in domain_count:
         domain_count[domain] += 1
     else:
@@ -96,7 +92,6 @@ sales_spikes = []
 for day_index in range(len(sales)):
     if sales[day_index] > average_sales:
         sales_spikes.append((day_index + 1, sales[day_index]))
-
 
 for day, value in sales_spikes:
     print(f"Day {day}: {value}")
