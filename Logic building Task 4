@@ -1,0 +1,114 @@
+### 1. Mobile Recharge Validation System
+
+def validate_recharge(amount):
+    valid_plans = [199, 299, 399, 599]
+    if amount < 50:
+        print("Recharge amount must be at least 50.")
+        return False
+    if amount not in valid_plans:
+        print("Invalid plan selected.")
+        print("Available plans: 199, 299, 399, 599")
+        return False
+    return True
+while True:
+    amount = int(input("Enter recharge amount: "))
+    if validate_recharge(amount):
+        print("Recharge successful")
+        break
+    else:
+        print("Please try again.\n")
+
+### 2.Inventory Reorder Alert System
+
+def check_stock(products):
+    for product, quantity in products.items():
+        if quantity < 15:
+            print(product, "→ Reorder Alert")
+        else:
+            print(product, "→ Stock OK")
+products = {
+    "Rice": 10,
+    "Wheat": 25,
+    "Sugar": 12,
+    "Oil": 30
+}
+result= check_stock(products)
+
+### 3. Student Result Processing System
+
+def evaluate_student(marks):
+    total = 0
+    for mark in marks:
+        total += mark 
+    average = total / len(marks)    
+    print("Average Marks:", average)
+    if average >= 50:
+        return "Pass"
+    else:
+        return "Fail"
+marks = [60, 45, 70, 55, 40]
+result = evaluate_student(marks)
+print("Result:", result)
+
+### 4. Cab Fare Estimator with Retry Option
+
+def calculate_fare(distance, peak):
+    base_fare = 50
+    rate_per_km = 12
+    fare = base_fare + (distance * rate_per_km)
+    if peak == "yes":
+        fare = fare + (fare * 0.25)
+    return fare
+while True:
+    distance = float(input("Enter distance in km: "))
+    peak = input("Is it high peak? (yes/no): ").lower()  
+    total_fare = calculate_fare(distance, peak)   
+    print("Total Fare: ", total_fare)
+    retry = input("Do you want to calculate again? (yes/no): ").lower()
+    if retry != "yes":
+        print("Thank you!")
+        break
+
+### 5. Employee Attendance Eligibility Checker
+
+def check_attendance(attendance_list):
+    total_days = len(attendance_list)
+    present_days = 0
+    for status in attendance_list:
+        if status == "P":
+            present_days += 1
+    percentage = (present_days / total_days) * 100
+    print("Attendance Percentage:", percentage, "%")
+    if percentage >= 75:
+        return "Eligible"
+    else:
+        return "Not Eligible"
+attendance = ["P", "A", "P", "P", "A", "P", "P", "P"]
+result = check_attendance(attendance)
+print("Status:", result)
+
+### 6. Password Strength Checker
+
+def check_password(password):
+    pas_digit = False
+    pas_special = False
+    if len(password) < 8:
+        print("Password must be at least 8 characters ")
+        return "Weak Password"
+    for char in password:
+        if char.isdigit():
+            pas_digit = True
+        if char in "@#$":
+            pas_special = True
+    if pas_digit and pas_special:
+        return "Strong Password"
+    else:
+        return "Weak Password"
+password = input("Enter your password: ")
+result = check_password(password)
+print("Password Status:", result)
+
+
+
+
+
